@@ -8,3 +8,14 @@ for (let i = 1; i < 10; i++) {
     const box = document.getElementById(`${i}`);
     box.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
 }
+const box = document.getElementById("1");
+box.addEventListener("click", (event) =>{
+    const Blur = event.target;
+    if (Blur.style.filter === ""){
+        Blur.style.filter = "blur(5px)";
+    }
+    else{
+        Blur.style.filter = "";
+    }
+    // Blur.classList.toggle("blur(5px)")
+})
