@@ -79,3 +79,43 @@ input2.addEventListener("keydown", (event)=>{
     box8.innerText = `${event.key}`
     box8.style.fontSize = "2rem"
 })
+
+const calc = document.querySelector(".nine button");
+const box9 = document.getElementById("9");
+
+const calculate = () => {
+    const inputValue = parseFloat(box9.innerText);
+    const operator = document.querySelector(".nine select").value;
+    const input2 = parseFloat(document.querySelector(".nine input").value);
+
+    let result;
+
+    switch (operator) {
+        case "add":
+            result = inputValue + Number(input2);
+            break;
+        case "sub":
+            result = inputValue - Number(input2);
+            break;
+        case "multiply":
+            result = inputValue * Number(input2);
+            break;
+        case "divide":
+            result = inputValue / Number(input2);
+            break;
+        default:
+            console.error("Ismeretlen művelet!");
+            return;
+    }
+
+    box9.innerText = ` ${result}`;
+    box9.innerText = input2 ? result : "-";
+    if (!input2){
+        setTimeout(()=>{
+            box9.innerText = 9;
+            result = 9;
+        },1000)
+    }
+}
+
+calc.addEventListener("click", calculate)

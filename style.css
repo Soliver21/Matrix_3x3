@@ -24,6 +24,7 @@ main{
     font-weight: bold;
     scale:1;
     transition: scale .3s;
+    cursor: pointer;
 }
 .blur{
     filter:blur(5px);
