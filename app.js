@@ -1,5 +1,4 @@
 const container = document.querySelector(".container");
-container.innerHTML = "";
 for (let i = 1; i < 10; i++) {
     let r = Math.floor(Math.random()*256);
     let g = Math.floor(Math.random()*256);
@@ -38,14 +37,45 @@ box3.addEventListener("dblclick", (event) => {
     const rndNum = Math.floor(Math.random()*1000);
     box3.innerHTML = rndNum;
 })
-
 const box4 = document.getElementById("4");
-box4.addEventListener("click", (event) => {
-    event.target.style.visibility = "";
-    if(event.target.style.visibility === "hidden"){
-        event.target.style.visibility = "";
+
+box4.addEventListener("click", () => {
+    if (box4.style.visibility === "hidden" || box4.style.visibility === "") {
+        box4.style.visibility = "visible";
+    } else {
+        box4.style.visibility = "hidden";
     }
-    else{
-        event.target.style.visibility = "hidden";
-    }
+});
+
+const box5 = document.getElementById("5");
+const boxes = document.querySelectorAll(".box"); 
+box5.addEventListener("click", (event) => {
+    boxes.forEach(box => {
+        if (box.style.borderRadius === ""){
+            box.style.borderRadius = "50%";
+        }
+        else{
+            box.style.borderRadius = "";
+        }
+    });
+});
+
+const box6 = document.getElementById("6");
+document.addEventListener("mousemove", (event) => {
+    box6.textContent = `${event.clientY} Y , ${event.clientX} X`;
+    box6.style.fontSize = "1.3rem";
+});
+
+const box7 = document.getElementById("7");
+const input1 = document.querySelector(".seven input");
+const button1 = document.querySelector(".seven button");
+button1.addEventListener("click", (event) =>{
+    box7.innerText = `${input1.value}`;
+})
+
+const box8 = document.getElementById("8");
+const input2 = document.querySelector(".eight input");
+input2.addEventListener("keydown", (event)=>{
+    box8.innerText = `${event.key}`
+    box8.style.fontSize = "2rem"
 })
